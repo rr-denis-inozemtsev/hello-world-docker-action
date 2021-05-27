@@ -55,7 +55,7 @@ jobs:
       - name: Build in Docker
         run: |
           mkdir temp_build,
-          cp -r src webextension-polyfill dockerfile.Docker package.json package-lock.json tsconfig.json webpack.config.js temp_build,
+          cp -r src webextension-polyfill dockerfile.Dockerfile package.json package-lock.json tsconfig.json webpack.config.js temp_build,
           cd temp_build,
           echo checking current folder
           ls
