@@ -57,9 +57,10 @@ jobs:
           mkdir temp_build
           cp -r src webextension-polyfill Dockerfile package.json package-lock.json tsconfig.json webpack.config.js temp_build
           cd temp_build
+          mkdir out
           echo checking current folder
           ls
-          mkdir out
+          docker -v
           docker build -o ./out . --rm=false
           echo checking current folder after build
           cd out
