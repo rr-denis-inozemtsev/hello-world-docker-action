@@ -23,10 +23,7 @@ COPY webpack.config.js webpack.config.js
 RUN npm i
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 RUN npm run build
-RUN echo check docker files
-RUN ls
-RUN cd dist
-RUN ls
-
-FROM scratch AS export-stage
-COPY --from=build-stage /dist /
+RUN rm -rf node_modules
+#
+#FROM scratch AS export-stage
+#COPY --from=build-stage /dist /
