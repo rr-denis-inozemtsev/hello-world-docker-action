@@ -57,10 +57,9 @@ jobs:
           mkdir temp_build
           cp -r src webextension-polyfill Dockerfile package.json package-lock.json tsconfig.json webpack.config.js temp_build
           cd temp_build
-          mkdir out
           echo checking current folder
           ls
-          docker build --output type=local,dest=out . --rm=false
+          docker build --output type=tar,dest=out.tar . --rm=false
 
 
       - name: Check current folder after docker
