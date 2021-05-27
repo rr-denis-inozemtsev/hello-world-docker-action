@@ -1,2 +1,5 @@
 *.iml
 .idea
+dist
+node_modules
+webextension-polyfill

@@ -1,0 +1,1 @@
+// chrome.devtools.panels.create('CAA', 'logo-128.png', 'devtools.html');

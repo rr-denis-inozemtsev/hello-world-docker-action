@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "CAA debug extension",
+  "version": "0.0.1",
+  "permissions": [
+    "<all_urls>",
+    "storage",
+    "debugger",
+    "webRequest",
+    "webNavigation"
+  ],
+  "background": {
+    "scripts": [
+      "webextension-polyfill.js",
+      "bg/bundle.js"
+    ]
+  },
+  "content_scripts": [{
+    "all_frames": false,
+    "js": [
+      "webextension-polyfill.js",
+      "content/bundle.js"
+    ],
+    "matches": [
+      "<all_urls>"
+    ],
+    "run_at": "document_start"
+  }],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "browser_action": {
+    "default_title": "CAA DEBUG",
+    "default_icon": {
+      "64": "logo-128.png"
+    }
+  },
+  "icons": {
+    "128": "logo-128.png"
+  },
+  "devtools_page": "devtools.html"
+}

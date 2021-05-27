@@ -1,0 +1,6 @@
+[submodule "webextension-polyfill"]
+	path = webextension-polyfill
+	url = https://github.com/mozilla/webextension-polyfill
+[submodule "webextension-polyfill-ts"]
+	path = webextension-polyfill-ts
+	url = https://github.com/Lusito/webextension-polyfill-ts
