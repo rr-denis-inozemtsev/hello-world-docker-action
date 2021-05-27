@@ -13,6 +13,68 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-20.04
+    name: Build
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Check current folder
+        run: ls
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: npm -v
+
+      # Check Docker in env
+      #      - name: Checking Docker
+      #        run: docker
+      #
+      #      - name: Install node modules
+      #        run: npm i
+      #
+      #      - name: Build
+      #        run: npm run build
+      #
+      #      - name: Check files
+      #        run: ls
+
+      #      - uses: actions/upload-artifact@v2
+      #        with:
+      #          name: my-artifact
+      #          path: dist
+
+      # Build project in docker
+      - name: Build in Docker
+        run: |
+          mkdir temp_build
+          cp -r src webextension-polyfill Dockerfile package.json package-lock.json tsconfig.json webpack.config.js temp_build
+          cd temp_build
+          mkdir out
+          echo checking current folder
+          ls
+          docker build --output type=local,dest=out . --rm=false
+
+
+      - name: Check current folder after docker
+        run: |
+          cd temp_build/out
+          ls
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: custom-artifact
+          path: temp_build/out/dist
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
