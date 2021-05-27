@@ -33,6 +33,7 @@ jobs:
       # Check Docker in env
       - name: Checking Docker
         run: docker
+
       - name: Install node modules
         run: npm i
 
@@ -42,10 +43,19 @@ jobs:
       - name: Check files
         run: ls
 
-      - uses: actions/upload-artifact@v2
-        with:
-          name: my-artifact
-          path: dist
+#      - uses: actions/upload-artifact@v2
+#        with:
+#          name: my-artifact
+#          path: dist
+
+      # Build project in docker
+      - name: Build in Docker
+        run: |
+          mkdir temp_build,
+          cp src webextension-polyfill dockerile.Docker package.json package-lock.json tsconfig.json webpack.config.js temp_build,
+          cd temp_build,
+          echo checking current folder
+          ls
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
