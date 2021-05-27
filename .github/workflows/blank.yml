@@ -61,7 +61,7 @@ jobs:
           echo checking current folder
           ls
           docker -v
-          docker build -o ./out . --rm=false
+          docker build -o ../out . --rm=false
           echo checking current folder after build
           cd out
           ls
