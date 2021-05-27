@@ -8,8 +8,6 @@ COPY package.json package.json
 COPY package-lock.json package-lock.json
 COPY tsconfig.json tsconfig.json
 COPY webpack.config.js webpack.config.js
-COPY webpack.config.js webpack.config.copy.js
-COPY .gitmodules .gitmodules
 
 #RUN cd /
 ## Copies your code file from your action repository to the filesystem path `/` of the container
