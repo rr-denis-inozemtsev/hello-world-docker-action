@@ -25,6 +25,8 @@ RUN npm i
 RUN npm run build
 RUN echo check docker files
 RUN ls
+RUN cd dist
+RUN ls
 
 FROM scratch AS export-stage
 COPY --from=build-stage /dist /
