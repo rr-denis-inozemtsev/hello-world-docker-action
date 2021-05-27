@@ -34,17 +34,17 @@ jobs:
         run: npm -v
 
       # Check Docker in env
-      - name: Checking Docker
-        run: docker
-
-      - name: Install node modules
-        run: npm i
-
-      - name: Build
-        run: npm run build
-
-      - name: Check files
-        run: ls
+#      - name: Checking Docker
+#        run: docker
+#
+#      - name: Install node modules
+#        run: npm i
+#
+#      - name: Build
+#        run: npm run build
+#
+#      - name: Check files
+#        run: ls
 
 #      - uses: actions/upload-artifact@v2
 #        with:
@@ -54,11 +54,11 @@ jobs:
       # Build project in docker
       - name: Build in Docker
         run: |
-          mkdir temp_build,
-          cp -r src webextension-polyfill Dockerfile package.json package-lock.json tsconfig.json webpack.config.js temp_build,
-          cd temp_build,
-          echo checking current folder,
-          ls,
+          mkdir temp_build
+          cp -r src webextension-polyfill Dockerfile package.json package-lock.json tsconfig.json webpack.config.js temp_build
+          cd temp_build
+          echo checking current folder
+          ls
           docker build -out .
 
       - uses: actions/upload-artifact@v2
