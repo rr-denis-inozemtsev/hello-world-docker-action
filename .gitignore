@@ -2,4 +2,4 @@
 .idea
 dist
 node_modules
-webextension-polyfill
+# webextension-polyfill
