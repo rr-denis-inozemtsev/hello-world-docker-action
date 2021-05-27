@@ -30,6 +30,9 @@ jobs:
       - name: Run a one-line script
         run: npm -v
 
+      # Check Docker in env
+      - name: Checking Docker
+        run: docker
       - name: Install node modules
         run: npm i
 
