@@ -59,7 +59,7 @@ jobs:
           cd temp_build
           echo checking current folder
           ls
-          docker build -out .
+          docker build -o out .
 
       - uses: actions/upload-artifact@v2
         with:
