@@ -60,6 +60,9 @@ jobs:
           echo checking current folder
           ls
           docker build -o out .
+          echo checking current folder after build
+          ls
+
 
       - name: Check current folder after docker
         run: ls
