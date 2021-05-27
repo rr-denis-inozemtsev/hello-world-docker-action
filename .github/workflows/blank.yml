@@ -33,9 +33,6 @@ jobs:
       - name: Install node modules
         run: npm i
 
-      - name: Install submodules
-        run: git submodule add https://github.com/Lusito/webextension-polyfill-ts
-
       - name: Build
         run: npm run build
 
