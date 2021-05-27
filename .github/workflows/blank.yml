@@ -26,6 +26,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Check current folder
+        run: ls
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: npm -v
@@ -52,7 +55,7 @@ jobs:
       - name: Build in Docker
         run: |
           mkdir temp_build,
-          cp src webextension-polyfill dockerile.Docker package.json package-lock.json tsconfig.json webpack.config.js temp_build,
+          cp -r src webextension-polyfill dockerfile.Docker package.json package-lock.json tsconfig.json webpack.config.js temp_build,
           cd temp_build,
           echo checking current folder
           ls
