@@ -59,7 +59,7 @@ jobs:
           cd temp_build
           echo checking current folder
           ls
-          docker build --output type=tar,dest=out.tar . --rm=false
+          docker build --output type=tar,dest=./out.tar . --rm=false
 
 
       - name: Check current folder after docker
