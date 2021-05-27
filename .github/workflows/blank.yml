@@ -68,7 +68,9 @@ jobs:
 
 
       - name: Check current folder after docker
-        run: ls
+        run: |
+          cd temp_build
+          ls
 
       - uses: actions/upload-artifact@v2
         with:
